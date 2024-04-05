@@ -44,7 +44,7 @@ step "sync-project" {
                             -Headers $header `
                             -UseBasicParsing).content | ConvertFrom-Json
                  
-                $tasksForProjAndEnv = ($tasks.Items | Where-Object{($.IsCompleted -eq $false) -and ($.Description.tolower() -like "$($projectName.tolower())")} |  Select-Object -First 1000)
+                $tasksForProjAndEnv = ($tasks.Items | Where-Object{($.IsCompleted -eq $false) -and ($.Description -like "$($projectName.tolower())")} |  Select-Object -First 1000)
                  
                 if ((($tasksForProjAndEnv -is [array]) -and ($tasksForProjAndEnv.length -ge 2))  -or (($tasksForProjAndEnv -isnot [array]) -and ( $tasksForProjAndEnv))) {
                     Write-output "Job already running, will not run: $projectName"
