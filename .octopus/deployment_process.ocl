@@ -1,10 +1,14 @@
 step "sync-project" {
     name = "Sync Project"
+    properties = {
+        Octopus.Action.TargetRoles = "KasiRole"
+    }
 
     action {
         action_type = "Octopus.Script"
+        environments = ["development"]
         properties = {
-            Octopus.Action.RunOnServer = "true"
+            Octopus.Action.RunOnServer = "false"
             Octopus.Action.Script.ScriptBody = <<-EOT
                 # You can get this dll from NuGet
                 # https://www.nuget.org/packages/Octopus.Client/
