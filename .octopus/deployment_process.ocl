@@ -8,7 +8,7 @@ step "sync-project" {
             Octopus.Action.Script.ScriptBody = <<-EOT
                 # You can get this dll from NuGet
                 # https://www.nuget.org/packages/Octopus.Client/
-                Add-Type -Path 'c:\program files\octopus deploy\octopus\Octopus.Client.dll'
+                Add-Type -Path 'C:\Program Files\Octopus Deploy\Octopus\Octopus.Client.dll'
                  
                 $octopusURL       = "http://localhost:1322/"
                 $apikey       = "API-KLAIBMKOKFN1QWM59LCXWTCZXLYCZV"
